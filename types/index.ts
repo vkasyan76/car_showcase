@@ -15,3 +15,10 @@ export interface SearchManufacturerProps {
 export interface CustomFilterProps {
   title: string;
 }
+
+// export interface HeadersProps {
+//   "X-RapidAPI-Key": string;
+//   "X-RapidAPI-Host": string;
+// }
+
+export type HeadersProps = HeadersInit;
