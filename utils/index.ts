@@ -1,12 +1,13 @@
-// import dotenv from "dotenv";
-import { CarProps, HeadersProps } from "@/types";
+import dotenv from "dotenv";
+import { CarProps, HeadersProps, FilterProps } from "@/types";
 
-// dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env.local" });
 
 // const rapidApiKey = process.env.RAPID_API_KEY;
 const rapidApiKey = process.env.RAPID_API_KEY || ""; // Provide a default value
 
-export async function fetchCars() {
+export async function fetchCars(filters: FilterProps) {
+  const { manufacturer, year, model, limit, fuel } = filters;
   // const headers = {
   //   "X-RapidAPI-Key": rapidApiKey,
   //   "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
@@ -24,7 +25,9 @@ export async function fetchCars() {
   // });
 
   const response = await fetch(
-    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=q3",
+    // "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
+    // `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
     {
       headers: headers,
       // headers: headersObj,
