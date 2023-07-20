@@ -15,10 +15,6 @@ export interface SearchManufacturerProps {
   setManufacturer: (manufacturer: string) => void;
 }
 
-export interface CustomFilterProps {
-  title: string;
-}
-
 // export interface HeadersProps {
 //   "X-RapidAPI-Key": string;
 //   "X-RapidAPI-Host": string;
@@ -47,4 +43,14 @@ export interface FilterProps {
   fuel: string;
   limit: number;
   model: string;
+}
+
+export interface OptionProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
 }
