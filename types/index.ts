@@ -61,9 +61,5 @@ export interface ShowMoreProps {
 }
 
 export interface SearchParamsProps {
-  manufacturer?: string;
-  year?: number;
-  fuel?: string;
-  limit?: number;
-  model?: string;
+  searchParams: FilterProps;
 }
